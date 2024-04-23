@@ -182,27 +182,33 @@
             <td><?=$data['namaalbum']?></td>
             <td><?=$data['deskripsi']?></td>
             <td><?=$data['tanggaldibuat']?></td>
-            <td>
-                <a href="hapus_album.php?albumid=<?=$data['albumid']?>"><i class="fas fa-trash-alt"></i> Hapus</a>
-                <a href="edit_album.php?albumid=<?=$data['albumid']?>"><i class="fas fa-edit"></i> Edit</a>
-            </td>
+            ...
+<td>
+    <a href="hapus_album.php?albumid=<?=$data['albumid']?>" onclick="return confirmDelete();"><i class="fas fa-trash-alt"></i> Hapus</a>
+    <a href="edit_album.php?albumid=<?=$data['albumid']?>"><i class="fas fa-edit"></i> Edit</a>
+</td>
+...
+
         </tr>
         <?php
         }
         ?>
     </table>
 
-    <!-- JavaScript untuk validasi input -->
-    <script>
-        function validateForm() {
-            var namaAlbum = document.getElementById("namaalbum").value.trim();
-            var deskripsi = document.getElementById("deskripsi").value.trim();
-            if (namaAlbum === "" || deskripsi === "") {
-                alert("Nama album dan deskripsi tidak boleh kosong!");
-                return false;
-            }
-            return true;
+    ...
+<!-- JavaScript untuk validasi input dan konfirmasi penghapusan -->
+<script>
+    function validateForm() {
+        var namaAlbum = document.getElementById("namaalbum").value.trim();
+        var deskripsi = document.getElementById("deskripsi").value.trim();
+        if (namaAlbum === "" || deskripsi === "") {
+            alert("Nama album dan deskripsi tidak boleh kosong!");
+            return false;
         }
-    </script>
-</body>
-</html>
+        return true;
+    }
+
+    function confirmDelete() {
+        return confirm("Apakah Anda yakin ingin menghapus album ini?");
+    }
+</script>
