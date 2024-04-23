@@ -124,7 +124,7 @@
             </tr>
             <tr>
                 <td>foto</td>
-                <td><img src="gambar/<?=$data['lokasifoto']?>" width="200px"></td>
+                <td><img src="gambar/<?=$data['lokasifile']?>" width="200px"></td>
             </tr>
             <tr>
                 <td>komentar</td>
