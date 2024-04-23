@@ -225,10 +225,23 @@ if(!isset($_SESSION['userid'])){
                 echo mysqli_num_rows($sql2);
                 ?>
             </td>
-            <td>
-                <a href="hapus_foto.php?fotoid=<?=$data['fotoid']?>"><i class="fas fa-trash-alt"></i> Hapus</a>
-                <a href="edit_foto.php?fotoid=<?=$data['fotoid']?>"><i class="fas fa-edit"></i> Edit</a>
-            </td>
+            ...
+<...
+<td>
+    <a href="hapus_foto.php?fotoid=<?=$data['fotoid']?>" onclick="return confirmDelete();"><i class="fas fa-trash-alt"></i> Hapus</a>
+    <a href="edit_foto.php?fotoid=<?=$data['fotoid']?>"><i class="fas fa-edit"></i> Edit</a>
+</td>
+...
+
+<!-- JavaScript untuk konfirmasi penghapusan -->
+<script>
+    function confirmDelete() {
+        return confirm("Apakah Anda yakin ingin menghapus foto ini?");
+    }
+</script>
+
+...
+
         </tr>
         <?php
         }
@@ -259,6 +272,7 @@ if(!isset($_SESSION['userid'])){
                 return false;
             }
             return true;
+            
         }
     </script>
 </body>
